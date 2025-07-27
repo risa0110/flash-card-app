@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import { UserDataProvider } from "./Context/UserDataContext";
+import "./style.css"
 
 export default function App() {
     return (
