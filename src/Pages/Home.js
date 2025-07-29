@@ -1,10 +1,10 @@
 import CreateAccountCompo from "../Components/CreateAccountCompo"
 import HeaderCompo from "../Components/HeaderCompo"
-//import LoginCompo from "../Components/LoginCompo"
 import { useState } from "react"
 
 export default function Home() {
     const [showSignUp, setShowSignUp] = useState(false);
+    const[showMenu, setShowMenu]=useState(false);
     const [mode, setMode] = useState("login");
     const openForm = (formMode)=>{
         setMode(formMode);
@@ -13,7 +13,10 @@ export default function Home() {
 
     return (
         <>
-            <HeaderCompo openForm={()=>openForm("login")}/>
+            <HeaderCompo 
+            openForm={()=>openForm("login")}
+            showMenu={showMenu}
+            btnShowMenu={()=>setShowMenu(!showMenu)}/>
             <div id="app-descriptiton">
                 <div>
                     <h2>Welcome to "Flash card App"!</h2>
@@ -21,7 +24,7 @@ export default function Home() {
                         Create your own sets, review them anytime, and track your progress as you master new concepts.
                         Whether you're preparing for exams, learning a new language, or just keeping your memory sharp, FlashMaster helps you study smarter—not harder.
                     </p>
-                    <button onClick={()=>openForm("signup")} className="hoverBtn">Create new Account</button>
+                    <button onClick={()=>openForm("createAccount")} className="hoverBtn">Create new Account</button>
                 </div>
             </div>
             

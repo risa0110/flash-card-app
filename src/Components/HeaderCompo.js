@@ -1,4 +1,10 @@
-export default function HeaderCompo({openForm}) {
+import { useContext } from "react"
+import UserDataContext from "../Context/UserDataContext"
+import HeaderMenuCompo from "./HeaderMenuCompo";
+import { Link } from "react-router-dom";
+
+export default function HeaderCompo({ openForm,btnShowMenu,showMenu }) {
+    const { currentUser, isAuthenticated } = useContext(UserDataContext);
     return (
         <>
             <header>
@@ -9,8 +15,17 @@ export default function HeaderCompo({openForm}) {
                     <div>
                         <nav>
                             <ul>
-                                <li>Start the flash-card</li>
-                                <button className="hoverBtn" onClick={openForm}>Log in</button>
+                                <li><Link to="/" id="flash-card">＋ Start the flash-card</Link></li>
+                                <li>
+                                    {!isAuthenticated ?
+                                        <button className="hoverBtn" onClick={openForm}>Log in</button> :
+                                        <button className="hoverBtn" onClick={btnShowMenu}>{currentUser.userName}</button>
+                                    }
+                                </li>
+                                <li>
+                                    {isAuthenticated ?
+                                    <HeaderMenuCompo showMenu={showMenu}/>:null}
+                                </li>
                             </ul>
                         </nav>
                     </div>

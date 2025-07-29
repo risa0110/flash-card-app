@@ -4,7 +4,7 @@ export default function Layout(){
         <>
         <ul>
             <li><Link to="/">Home Page</Link></li>
-            <li><Link to="/">Profile Page</Link></li>
+            <li><Link to="/Profile">Profile Page</Link></li>
         </ul>
         <Outlet/>
         </>

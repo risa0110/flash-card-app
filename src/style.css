@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
 }
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
 /*Variables*/
 :root{
     --main-site-color: #4255ff;
@@ -12,13 +18,16 @@
 }
 /*header-compo style*/
 .container{
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1rem 1.2rem;
 }
+header .container{
+    display: flex;
+    justify-content: space-between;
+}
 header ul{
     display: flex;
+    align-items: center;
 }
 header #site-logo h1{
     color:var(--main-site-color);
@@ -26,6 +35,28 @@ header #site-logo h1{
 header nav button{
     padding: 0.4rem 0.8rem;
     height: 2.5rem;
+}
+#flash-card{
+    font-weight: var(--fontweight-med);
+    color: var(--main-site-color);
+    margin-right: 1.5rem;
+}
+#flash-card:hover{
+    opacity: 0.8;
+}
+/*header-menu compo style*/
+#header-menu{
+    position: absolute;
+    top: 4.5rem;
+    right: 1rem;
+    height: 16rem;
+    width: 18rem;
+    background-color: var(--color-white);
+    box-shadow: 0 0 5px -1px gray;
+    border-radius: 0.5rem;
+}
+#header-menu div{
+    margin: 1.3rem 1rem;
 }
 
 /*home page style*/
@@ -57,13 +88,56 @@ header nav button{
 .login-section{
     background-color: #fff;
     position: absolute;
-    min-width: 80rem;
-    min-height: 30rem;
+    width: 65rem;
+    height: 30rem;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-60%);
-    padding: 10rem 20rem;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 5px -1px gray;
+    border-radius: 0.3rem;
 }
 .hidden{
     display: none;
+}
+.login-section> div{
+    padding: 5rem 10rem;
+}
+.login-section form{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.login-section form input{
+    height: 2.5rem;
+    width: 30rem;
+}
+.close-btn{
+    width: 3rem;
+    aspect-ratio: 1/1;
+    font-size: 1.3rem;
+    border: 2px var(--main-site-color) solid;
+    border-radius: 2rem;
+    color: var(--main-site-color);
+    background-color: var(--color-white);
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+}
+.login-section form .submit{
+    width: 30rem;
+    height: 3rem;
+    background-color: var(--main-site-color);
+    color: var(--color-white);
+    border: none;
+    border-radius: 1.5rem;
+}
+/*profile page style*/
+#profile-sec{
+    border: 1px #000 solid;
+    border-radius: 0.3rem;
+    margin: 2rem 0;
+}
+#profile-sec div{
+    margin: 1rem 2rem;
 }
