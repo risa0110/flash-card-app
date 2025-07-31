@@ -1,5 +1,4 @@
 import React, { useState, useEffect,useContext } from "react";
-import '../styles/MyFlashcards.css';
 import UserDataContext from "../Context/UserDataContext";
 
 function CreateMyFlashcards() {
