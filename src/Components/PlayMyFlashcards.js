@@ -40,7 +40,7 @@ function PlayMyFlashcards(){
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
       <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: '#333' }}>Play My Flashcards</h2>
 
-      <div style={{ marginBottom: '2rem' }}>
+      <div style={{ marginBottom: '2rem' , color: '#333' }}>
         <label htmlFor="category-select" style={{ fontWeight: 'bold', marginRight: '1rem' }}>
           Select Category:
         </label>
@@ -69,7 +69,7 @@ function PlayMyFlashcards(){
         </select>
       </div>
 
-      <div>
+      <div style={{ color: '#333' }}>
         {filteredCards.length === 0 && selectedCategoryId && (
           <p style={{ fontStyle: 'italic', color: '#999' }}>No Flashcards in this category.</p>
         )}

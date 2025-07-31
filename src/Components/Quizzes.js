@@ -51,7 +51,8 @@ function Quizzes() {
       margin: 'auto', 
       backgroundColor: '#fff', 
       borderRadius: '8px', 
-      boxShadow: '0 4px 10px rgba(0,0,0,0.1)' 
+      boxShadow: '0 4px 10px rgba(0,0,0,0.1)' ,
+      color: '#333' 
     }}>
       <h1 style={{ 
         fontSize: '2rem', 
@@ -75,7 +76,7 @@ function Quizzes() {
           cursor: 'pointer'
         }}
       >
-        <option value="" disabled>
+        <option value="" disabled style={{ color: '#333' }}>
           Select a Category
         </option>
         {Array.isArray(categories) && categories.map(cat => (
