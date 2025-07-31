@@ -5,7 +5,7 @@ export default function OpenTrivia() {
   return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif", backgroundColor: "#fff", minHeight: "100vh" }}>
       <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem", color: "#444" }}>Quizzes from OpenTrivia</h2>
-      <p style={{ fontSize: "1rem", marginBottom: "2rem" }}>Select a quiz category to view flashcards</p>
+      <p style={{ fontSize: "1rem", marginBottom: "2rem" , color: '#333' }}>Select a quiz category to view flashcards</p>
       <Quizzes />
       <section>
         <div>

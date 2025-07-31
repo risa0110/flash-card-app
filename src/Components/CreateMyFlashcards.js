@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../styles/MyFlashcards.css';
+
 
 function CreateMyFlashcards() {
   const [categories, setCategories] = useState([]);
@@ -118,9 +118,9 @@ function CreateMyFlashcards() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', padding: '20px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', padding: '20px' ,marginTop: '16px',}}>
       <div style={sectionStyle}>
-        <h3>Add new Category</h3>
+        <h3 style={{ color: '#333' }}>Add new Category</h3>
         <input
           value={newCategoryName}
           onChange={e => setNewCategoryName(e.target.value)}
@@ -131,7 +131,7 @@ function CreateMyFlashcards() {
       </div>
 
       <div style={sectionStyle}>
-        <h3>Choose your category</h3>
+        <h3 style={{ color: '#333' }}>Choose your category</h3>
         <select
           value={selectedCategoryId || ''}
           onChange={e => setSelectedCategoryId(Number(e.target.value))}
@@ -150,7 +150,7 @@ function CreateMyFlashcards() {
       </div>
 
       <div style={sectionStyle}>
-        <h3>{editingCard ? "Edit Card" : "New Flashcard"}</h3>
+        <h3 style={{ color: '#333' }}>{editingCard ? "Edit Card" : "New Flashcard"}</h3>
         <input
           value={question}
           onChange={e => setQuestion(e.target.value)}
@@ -168,12 +168,13 @@ function CreateMyFlashcards() {
       </div>
 
       <div style={{ ...sectionStyle, width: '100%' }}>
-        <h3>My Flashcards</h3>
+        <h3 style={{ color: '#333' }}>My Flashcards</h3>
         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
           {flashcards
             .filter(card => card.categoryId === selectedCategoryId)
             .map(card => (
               <li key={card.id} style={{
+                marginTop: '16px',
                 marginBottom: '16px',
                 background: '#fff',
                 borderRadius: '8px',
