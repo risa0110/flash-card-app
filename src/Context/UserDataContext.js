@@ -40,7 +40,7 @@ export function UserDataProvider({ children }) {
     };
     const logout = () => {
         setIsAuthenticated(false);
-        localStorage.removeItem("currentUser"); //←こいついる？
+        localStorage.removeItem("currentUser"); 
     };
     console.log(users, isAuthenticated);
     return (

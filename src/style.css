@@ -3,19 +3,30 @@
     margin: 0;
     padding: 0;
 }
+#root>div{
+    height: 100vh;
+}
+p{
+    font-size: 1rem;
+}
 li{
     list-style: none;
 }
 a{
     text-decoration: none;
+    color: var(--main-site-color);
 }
 /*Variables*/
 :root{
     --main-site-color: #4255ff;
-    --color-white: #fff;
+    --main-site-color-dark: #7087ff;
+    --color-white: #f0f0f0;
+    --header-dark:#22242c;
     --background-light:#F6F7FB;
+    --background-dark: #1c1e26;
     --fontweight-med: 600;
 }
+
 /*header-compo style*/
 .container{
     align-items: center;
@@ -29,9 +40,6 @@ header ul{
     display: flex;
     align-items: center;
 }
-header #site-logo h1{
-    color:var(--main-site-color);
-}
 header nav button{
     padding: 0.4rem 0.8rem;
     height: 2.5rem;
@@ -44,6 +52,7 @@ header nav button{
 #flash-card:hover{
     opacity: 0.8;
 }
+
 /*header-menu compo style*/
 #header-menu{
     position: absolute;
@@ -51,7 +60,6 @@ header nav button{
     right: 1rem;
     height: 16rem;
     width: 18rem;
-    background-color: var(--color-white);
     box-shadow: 0 0 5px -1px gray;
     border-radius: 0.5rem;
 }
@@ -61,12 +69,11 @@ header nav button{
 
 /*home page style*/
 #app-descriptiton{
-    background-color: var(--background-light);
     text-align: center;
     padding: 4rem 18rem;
 }
 #app-descriptiton h2{
-    font-size: 2.75rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 #app-descriptiton button{
@@ -86,7 +93,6 @@ header nav button{
 
 /*login section style*/
 .login-section{
-    background-color: #fff;
     position: absolute;
     width: 65rem;
     height: 30rem;
@@ -113,7 +119,7 @@ header nav button{
     width: 30rem;
 }
 .close-btn{
-    width: 3rem;
+    width: 2.8rem;
     aspect-ratio: 1/1;
     font-size: 1.3rem;
     border: 2px var(--main-site-color) solid;
@@ -121,8 +127,8 @@ header nav button{
     color: var(--main-site-color);
     background-color: var(--color-white);
     position: absolute;
-    top: 3rem;
-    right: 3rem;
+    top: 2rem;
+    right: 1.5rem;
 }
 .login-section form .submit{
     width: 30rem;
@@ -140,4 +146,54 @@ header nav button{
 }
 #profile-sec div{
     margin: 1rem 2rem;
+}
+
+/*Light-mode style*/
+.light-mode{
+    background-color: var(--background-light);
+}
+/*Dark-mode style*/
+.dark-mode{
+    color: var(--color-white);
+    background-color: var(--background-dark);
+}
+.light-mode header, .light-mode #header-menu, .light-mode .login-section{
+    background-color: #fff;
+}
+.dark-mode header, .dark-mode #header-menu, .dark-mode .login-section{
+    background-color: var(--header-dark);
+}
+.dark-mode a{
+    color: var(--main-site-color-dark);
+}
+.themeBtn{
+    width: 13rem;
+    height: 3rem;
+    margin: 0.5rem 0.3rem;
+    font-size: 1rem;
+}
+/*responsive design*/
+@media (max-width: 480px) {
+    header h1{
+        font-size: 1.4rem;
+    }
+    #app-descriptiton{
+        padding: 1rem;
+    }   
+    .login-section{
+        height: 35rem;
+        width: 20rem;
+        top:40%;
+    }
+    .login-section> div{
+        padding: 5rem 2rem;
+    }
+    .login-section form input{
+    height: 2.5rem;
+    width: 14rem;
+}
+.login-section form .submit{
+    width: 14rem;
+    height: 3rem;
+}
 }

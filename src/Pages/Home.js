@@ -1,22 +1,12 @@
 import CreateAccountCompo from "../Components/CreateAccountCompo"
-import HeaderCompo from "../Components/HeaderCompo"
-import { useState } from "react"
+import { useContext } from "react"
+import MenuContext from "../Context/MenuContext";
 
 export default function Home() {
-    const [showSignUp, setShowSignUp] = useState(false);
-    const[showMenu, setShowMenu]=useState(false);
-    const [mode, setMode] = useState("login");
-    const openForm = (formMode)=>{
-        setMode(formMode);
-        setShowSignUp(true);
-    }
+    const {openForm,showCreateAccount} = useContext(MenuContext);
 
     return (
         <>
-            <HeaderCompo 
-            openForm={()=>openForm("login")}
-            showMenu={showMenu}
-            btnShowMenu={()=>setShowMenu(!showMenu)}/>
             <div id="app-descriptiton">
                 <div>
                     <h2>Welcome to "Flash card App"!</h2>
@@ -28,11 +18,8 @@ export default function Home() {
                 </div>
             </div>
             
-            {showSignUp &&(
-                <CreateAccountCompo 
-                mode={mode}
-                isVisible={showSignUp}
-                btnClose={()=>setShowSignUp(false)}/>
+            {showCreateAccount &&(
+                <CreateAccountCompo/>
             )}
         </>
     )

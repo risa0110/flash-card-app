@@ -1,12 +1,18 @@
-import { Outlet, Link } from "react-router-dom";
-export default function Layout(){
-    return(
+import HeaderCompo from "./Components/HeaderCompo"
+import { Outlet } from "react-router-dom"
+import { useContext } from "react"
+import ThemeContext from "./Context/ThemeContext";
+
+export default function Layout() {
+    const { theme } = useContext(ThemeContext);
+    return (
         <>
-        <ul>
-            <li><Link to="/">Home Page</Link></li>
-            <li><Link to="/Profile">Profile Page</Link></li>
-        </ul>
-        <Outlet/>
+            <div className={theme === 'light' ? "dark-mode" : "light-mode"}>
+                <HeaderCompo />
+                <main>
+                    <Outlet />
+                </main>
+            </div>
         </>
     )
 }

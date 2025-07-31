@@ -1,44 +1,47 @@
 import { useState, useContext } from "react"
 import UserDataContext from "../Context/UserDataContext"
+import MenuContext from "../Context/MenuContext";
 
-export default function CreateAccountCompo({ mode, isVisible, btnClose }) {
+export default function CreateAccountCompo() {
     const [formData, setFormData] = useState({
         email: '',
         userName: '',
         password: ''
     });
+    const {mode, closeMenu,showCreateAccount} =useContext(MenuContext);
     const { createAccount, login } = useContext(UserDataContext);
     const formSubmit = (e) => {
         e.preventDefault();
-        if(!formData.email || !formData.userName || !formData.password){
-            alert("error");//書き換えよう
-            return;
-        }
         if (mode === "createAccount") {
-            createAccount(formData);
+            if (!formData.email || !formData.userName || !formData.password) {
+                alert("All fields are required.");//書き換えよう
+                return;
+            } else {
+                createAccount(formData);
+            }
         } else {
             login(formData);
         }
-        btnClose();
+        closeMenu();
         console.log(formData)
         setFormData({ email: '', userName: '', password: '' });
     }
 
-    const isSignup = mode === "createAccount"; //the mode for the login/createAccount display
+    const isCreateAccount = mode === "createAccount"; //the mode for the login/createAccount display
 
     return (
         <>
-            <div className={isVisible ? "login-section" : "login-section hidden"}>
+            <div className={showCreateAccount ? "login-section" : "login-section hidden"}>
                 <div>
                     <div>
-                        <button onClick={btnClose} className="close-btn">✖</button>
+                        <button onClick={closeMenu} className="close-btn">✖</button>
                     </div>
                     <div>
-                        <h1>{isSignup ? "Create a new account" : "Login"}</h1>
+                        <h1>{isCreateAccount ? "Create a new account" : "Login"}</h1>
                     </div>
                     <div>
                         <form onSubmit={formSubmit}>
-                            {isSignup && (
+                            {isCreateAccount && (
                                 <input
                                     name="email"
                                     placeholder="e-mail"
@@ -55,7 +58,7 @@ export default function CreateAccountCompo({ mode, isVisible, btnClose }) {
                                 placeholder="password"
                                 value={formData.password}
                                 onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-                            <button type="submit" className="submit">{isSignup ? "Create" : "Login"}</button>
+                            <button type="submit" className="submit">{isCreateAccount ? "Create" : "Login"}</button>
                         </form>
                     </div>
                 </div>

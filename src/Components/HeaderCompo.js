@@ -2,29 +2,35 @@ import { useContext } from "react"
 import UserDataContext from "../Context/UserDataContext"
 import HeaderMenuCompo from "./HeaderMenuCompo";
 import { Link } from "react-router-dom";
+import MenuContext from "../Context/MenuContext";
 
-export default function HeaderCompo({ openForm,btnShowMenu,showMenu }) {
+export default function HeaderCompo() {
     const { currentUser, isAuthenticated } = useContext(UserDataContext);
+    const {openForm, btnShowMenu} = useContext(MenuContext);
+
     return (
         <>
             <header>
                 <div className="container">
                     <div id="site-logo">
-                        <h1>Flash card App</h1>
+                        <h1><Link to="/">Flash card App</Link></h1>
                     </div>
                     <div>
                         <nav>
                             <ul>
-                                <li><Link to="/" id="flash-card">＋ Start the flash-card</Link></li>
+                                {!isAuthenticated?
+                                  <li><Link to="/" onClick={()=>openForm("login")} id="flash-card">＋ Start</Link></li>:
+                                  <li><Link to="/" id="flash-card">＋ Start</Link></li>
+                                }
                                 <li>
                                     {!isAuthenticated ?
-                                        <button className="hoverBtn" onClick={openForm}>Log in</button> :
+                                        <button className="hoverBtn" onClick={()=>openForm("login")}>Log in</button> :
                                         <button className="hoverBtn" onClick={btnShowMenu}>{currentUser.userName}</button>
                                     }
                                 </li>
                                 <li>
                                     {isAuthenticated ?
-                                    <HeaderMenuCompo showMenu={showMenu}/>:null}
+                                    <HeaderMenuCompo/>:null}
                                 </li>
                             </ul>
                         </nav>

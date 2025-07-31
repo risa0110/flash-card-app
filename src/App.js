@@ -3,18 +3,25 @@ import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import { UserDataProvider } from "./Context/UserDataContext";
 import "./style.css"
+import Layout from "./Layout";
+import { MenuProvider } from "./Context/MenuContext";
+import { ThemeProvider } from "./Context/ThemeContext";
 
 export default function App() {
     return (
         <UserDataProvider>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/">
-                        <Route index element={<Home />} />
-                        <Route path="profile" element={<Profile />} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
+            <ThemeProvider>
+                <MenuProvider>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Layout />}>
+                                <Route index element={<Home />} />
+                                <Route path="profile" element={<Profile />} />
+                            </Route>
+                        </Routes>
+                    </BrowserRouter>
+                </MenuProvider>
+            </ThemeProvider>
         </UserDataProvider>
     )
 }
