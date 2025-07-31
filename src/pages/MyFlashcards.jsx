@@ -1,5 +1,4 @@
 import PlayMyFlashcards from "../components/PlayMyFlashcards";
-import { Link } from 'react-router-dom';
 
 export default function MyFlashcards() {
   return (

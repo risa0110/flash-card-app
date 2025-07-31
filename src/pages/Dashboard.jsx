@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import CreateMyFlashcards from "../components/CreateMyFlashcards";
 
 export default function Dashboard() {
