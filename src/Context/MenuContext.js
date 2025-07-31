@@ -2,15 +2,15 @@ import { createContext, useState } from "react";
 const MenuContext = createContext();
 
 export function MenuProvider({children}){
-    const [showCreateAccount, setShowCreateAccount] = useState(false); //Login/Signin用のセクション表示用
-    const[showMenu, setShowMenu]=useState(false); //Header-menu表示用
-    const [mode, setMode] = useState("login");//login-sec表示なのかsignin-sec表示なのかの判別用
-    const openForm = (formMode)=>{ //opening the createAccount Form
+    const [showCreateAccount, setShowCreateAccount] = useState(false); //for showing CreateAccount/login section(the state of these section)
+    const[showMenu, setShowMenu]=useState(false); //for showing Header-menu
+    const [mode, setMode] = useState("login");//checking this section is for createing Account or Login(the mode checker)
+    const openForm = (formMode)=>{ //opening the login Form
         setMode(formMode);
         setShowCreateAccount(true);
     };
-    const closeMenu = ()=> setShowCreateAccount(false);//login/signin-secでの✖ボタンを押したときの閉じる処理用
-    const btnShowMenu = () => setShowMenu(!showMenu);//ログイン時にheaderのユーザーアイコンを押したときにshowmenuをtrueにして表示する用
+    const closeMenu = ()=> setShowCreateAccount(false);//for closing the login/createAccount-sec
+    const btnShowMenu = () => setShowMenu(!showMenu);//for showing the header-menu section
 
 
     return(

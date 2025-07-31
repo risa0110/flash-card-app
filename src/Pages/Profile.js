@@ -21,6 +21,7 @@ export default function Profile() {
                     <button onClick={themeBtn} className="hoverBtn themeBtn">change mode to: {theme}</button>
                 </div>
             </div>
+            {/*Add modifing button to change the user name, e-mail and password*/}
         </>
     )
 }
