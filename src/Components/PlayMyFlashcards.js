@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import UserDataContext from '../Context/UserDataContext';
 
 function PlayMyFlashcards(){
   const [categories, setCategories] = useState([]);
@@ -6,12 +8,18 @@ function PlayMyFlashcards(){
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [flippedIds, setFlippedIds] = useState(new Set());
 
+  const {currentUser} = useContext(UserDataContext);
+
+  const categoriesKey = `categories_${currentUser.userName}`;
+  const flashcardsKey = `flashcards_${currentUser.userName}`;
+
   useEffect(() => {
-    const savedCategories = JSON.parse(localStorage.getItem("categories")) || [];
-    const savedFlashcards = JSON.parse(localStorage.getItem("flashcards")) || [];
+    if(!currentUser) return;
+    const savedCategories = JSON.parse(localStorage.getItem(categoriesKey)) || [];
+    const savedFlashcards = JSON.parse(localStorage.getItem(flashcardsKey)) || [];
     setCategories(savedCategories);
     setFlashcards(savedFlashcards);
-  }, []);
+  }, [currentUser]);
 
   const toggleFlip = (id) => {
     const updated = new Set(flippedIds);
