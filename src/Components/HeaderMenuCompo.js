@@ -13,7 +13,7 @@ export default function HeaderMenuCompo() {
     };
     useEffect(()=>{
         setShowMenu(false);
-    },[location.pathname,setShowMenu]) //for closing the header menu when u move to the another pages.
+    },[location.pathname]) //for closing the header menu when u move to the another pages.
 
     return (
         <>
