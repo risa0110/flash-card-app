@@ -14,13 +14,18 @@ export default function CreateAccountCompo() {
         e.preventDefault();
         if (mode === "createAccount") {
             if (!formData.email || !formData.userName || !formData.password) {
-                alert("All fields are required.");//書き換えよう
+                alert("All fields are required.");
                 return;
             } else {
                 createAccount(formData);
             }
         } else {
+            if(!formData.userName || !formData.password){
+                alert("All fields are required.");
+                return;
+            }else{
             login(formData);
+            }
         }
         closeMenu();
         console.log(formData)
