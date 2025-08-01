@@ -175,7 +175,7 @@ function CreateMyFlashcards() {
         {editingCard && <button onClick={resetForm} style={cancelButtonStyle}>Cancel</button>}
       </div>
 
-      <div style={{ ...sectionStyle, width: '100%' }}>
+      <div style={{ ...sectionStyle, width: '100%' ,  color: '#333' }}>
         <h3 style={{ color: '#333' }}>My Flashcards</h3>
         <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
           {flashcards
